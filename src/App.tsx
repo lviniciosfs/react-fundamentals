@@ -1,10 +1,16 @@
 import React from 'react'; // Adicione esta linha no topo do ficheiro
 
-export default function App() {
-  const surname = 'Lucas'
-  const forename = 'Silva'
+export default function NumberList() {
+  const numbers = [1,2,3,4,5]
+
+  const listItems = numbers.map(i => {
+    <li key={i}>
+      Number: {i}
+    </li>
+  })
+
   return (
-    <><h1>Hello, {surname}!</h1>
-    <p>Second {forename}</p></>
-  );
+    <ul>{listItems}</ul>
+  )
 }
+
