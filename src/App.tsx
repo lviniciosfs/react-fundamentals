@@ -1,26 +1,14 @@
-interface WeatherInfoProps {
-  temperature: number; // Use 'string' se a temperatura vier com a unidade (ex: "25°C")
-}
+import Profile from './Profile.js'
 
-export default function WeatherInfo( {temperature}: WeatherInfoProps) {
-
-  
-  let weatherMessage;
-  if (temperature > 30) {
-    weatherMessage = <p>It's hot outside!</p>;
-  } else {
-    weatherMessage = <p>It's cold, wear a jacket.</p>;
-  }
-  
+export default function Gallery() {
   return (
-    <div>
-      {weatherMessage}
-      
-      {/* Method 2: Ternary operator */}
-      <p>{temperature > 25 ? 'Too warm' : 'Comfortable'}</p>
-      
-      {/* Method 3: Logical AND */}
-      {temperature > 32 && <p>Warning: Extreme heat!</p>}
-    </div>
-  );
+    <>
+    <h1>A list of profiles:</h1>
+      <Profile
+        name={'Lucas'}
+        age={30}
+        profission={'Developer'}
+      ></Profile>
+    </>
+  )
 }
