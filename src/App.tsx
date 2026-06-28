@@ -1,18 +1,19 @@
 import React from 'react'; // Adicione esta linha no topo do ficheiro
-import { createElement } from 'react';
-
-function Greeting({name}){
-  return createElement(
-    'p',
-    null,
-    'Hello',
-    createElement('i', null, name)
-  )
-}
 
 export default function App() {
-  return createElement(
-    Greeting,
-    { name: 'Taylor' }
+  return (
+    <>
+      <h1>Hedy Lamarr's Todos</h1>
+      <img 
+        src="https://i.imgur.com/yXOvdOSs.jpg" 
+        alt="Hedy Lamarr" 
+        className="photo"
+      />
+      <ul>
+        <li>Invent new traffic lights</li>
+        <li>Rehearse a movie scene</li>
+        <li>Improve spectrum technology</li>
+      </ul>
+    </>
   );
 }
