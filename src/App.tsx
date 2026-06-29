@@ -1,14 +1,12 @@
-import Profile from './Profile.js'
+export default function Button() {
 
-export default function Gallery() {
+  function trigger(event: any){
+    alert('triggered '+ event.target.tagName)
+  }
+
+  
   return (
-    <>
-    <h1>A list of profiles:</h1>
-      <Profile
-        name={'Lucas'}
-        age={30}
-        profission={'Developer'}
-      ></Profile>
-    </>
+    <button onClick={trigger}>here</button>
   )
+
 }
