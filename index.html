@@ -1,13 +1,110 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>React Basics</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+      function ChatInput() {
+        return (
+          <>
+            <input/>
+            <button>Search</button>
+          </>  
+        )
+      }
+
+      function MessageSection({message, sender}) {
+        return (
+          <div>
+            {sender === 'robot' && <img width="50" src="https://supersimple.dev/projects/chatbot/robot.png"/>}
+            {message}
+            {sender === 'user' && <img width="50" src="https://supersimple.dev/projects/chatbot/user.png"/>}
+          </div>
+        )
+      }
+
+      function AppMessage() {
+        const chatMessages = [
+            {
+              id: 1,
+              message: "Olá! Como posso ajudar você hoje?",
+              sender: "robot",
+            },
+            {
+              id: 2,
+              message: "Quero saber como funciona o Angular Signals.",
+              sender: "user",
+            },
+            {
+              id: 3,
+              message: "Angular Signals é um sistema reativo para gerenciamento de estado.",
+              sender: "robot",
+            },
+            {
+              id: 4,
+              message: "Eles substituem completamente o RxJS?",
+              sender: "user",
+            },
+            {
+              id: 5,
+              message: "Não. Eles complementam o RxJS e cada um tem seus casos de uso.",
+              sender: "robot",
+            },
+            {
+              id: 6,
+              message: "Pode me mostrar um exemplo simples?",
+              sender: "user",
+            },
+            {
+              id: 7,
+              message: "Claro! Você pode criar um signal usando signal(0) e atualizá-lo com set() ou update().",
+              sender: "robot",
+            },
+            {
+              id: 8,
+              message: "E como funciona um computed?",
+              sender: "user",
+            },
+            {
+              id: 9,
+              message: "Um computed deriva seu valor automaticamente a partir de um ou mais signals.",
+              sender: "robot",
+            },
+            {
+              id: 10,
+              message: "Perfeito, era isso que eu precisava. Obrigado!",
+              sender: "user",
+            },
+          ];
+        
+        return (
+          <>
+          {
+            chatMessages.map(m => 
+            <MessageSection message={m.message} sender={m.sender} key={m.id}/>)
+          }
+          </>
+        )
+      }
+
+      function App() {
+        return (
+        <div>
+          <ChatInput/>
+          <AppMessage/>
+        </div>   
+        )
+      }
+
+      ReactDOM.createRoot(container).render(<App/>);
+    </script>
   </body>
 </html>
