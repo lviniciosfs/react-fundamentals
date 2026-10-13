@@ -64,13 +64,23 @@
       }
 
       function ChatMessages({chatMessages}) {
+        const chatMessagesRef = React.useRef(null)
+
+        React.useEffect(() => {
+          const containerEl = chatMessagesRef.current;
+          if (containerEl) {
+            console.log(containerEl.scrollHeight)
+            containerEl.scrollTop = containerEl.scrollHeight
+            console.log(containerEl.scrollTop)
+          }
+        },[chatMessages])
         return (
-          <>
+          <div ref={chatMessagesRef} style={{ height: '300px', overflowY: 'auto' }}>>
           {
             chatMessages.map(m => 
             <MessageSection message={m.message} sender={m.sender} key={m.id}/>)
           }
-          </>
+          </div>
         )
       }
 
