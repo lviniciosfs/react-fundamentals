@@ -48,3 +48,14 @@ export default tseslint.config({
   },
 })
 ```
+
+TODO:
+do mapping for checkout page (cart, product, delivery) ok
+do mapping for order page 
+change useffect to use async await ok
+
+OPTIONAL
+create 'directive' for format money
+adjust delivery options 
+adjust delivery date based on delivery option selected
+
